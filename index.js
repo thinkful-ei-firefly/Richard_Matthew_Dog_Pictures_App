@@ -9,17 +9,17 @@ const getPics = num => {
 
 const displayPhotos = arr => {
   const images = arr.map(url => mapUrlToImg(url)).join("");
-  const section = document.querySelector(".dog-pics");
-  section.innerHTML = images;
+  $(".dog-pics").html(images);
 };
 
 const mapUrlToImg = url => `<img src="${url}" alt="dog pic">`;
 
-const main = () => {
+const handleSubmit = () => {
   $("main").on("submit", ".form", e => {
     e.preventDefault();
     const num = $(".input").val();
-    getPics(num);
+    getPics(num ? num : 3);
   });
 };
+const main = () => handleSubmit();
 $(main);
