@@ -1,3 +1,5 @@
+'use strict';
+
 const getPics = num => {
   fetch(`https://dog.ceo/api/breeds/image/random/${num}`, { mode: "cors" })
     .then(res => res.json())
